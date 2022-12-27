@@ -8,6 +8,7 @@ LABEL maintainer="github/marchocode"
 
 WORKDIR /root
 
+COPY start.sh /root/start.sh
 COPY xray.sh /root/xray.sh
 COPY update-rules-dat.sh /etc/xray/update-rules-dat.sh
 COPY config.json /etc/xray/config.json
@@ -23,4 +24,4 @@ RUN set -ex \
 
 VOLUME /etc/xray
 ENV TZ=Asia/Shanghai
-CMD [ "crond && /usr/bin/xray", "-config", "/etc/xray/config.json" ]
+CMD [ "./start.sh" ]
