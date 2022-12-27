@@ -18,8 +18,8 @@ RUN set -ex \
 	&& chmod +x /root/xray.sh \
 	&& /root/xray.sh \
 	&& rm -fv /root/xray.sh \
-	&& wget -Oq /usr/share/xray/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat \
-	&& wget -Oq /usr/share/xray/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+	&& wget -Oq /usr/share/xray/geosite.dat https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat \
+	&& wget -Oq /usr/share/xray/geoip.dat https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat
 
 VOLUME /etc/xray
 ENV TZ=Asia/Shanghai
