@@ -9,8 +9,11 @@ FROM alpine:latest
 LABEL maintainer="github/marchocode"
 
 WORKDIR /root
+
 COPY xray.sh /root/xray.sh
+COPY update-rules-dat.sh /etc/xray/update-rules-dat.sh
 COPY config.json /etc/xray/config.json
+
 RUN set -ex \
 	&& apk add --no-cache tzdata ca-certificates \
 	&& mkdir -p /var/log/xray /usr/share/xray \
