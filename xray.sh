@@ -52,7 +52,4 @@ echo "Download binary file: ${XRAY_FILE} completed"
 echo "Setting Default Crond"
 echo "*       18      *       *       *       /etc/xray/update-rules-dat.sh" >> /var/spool/cron/crontabs/root
 
-echo "Starting Crond service"
-crond
-
 chmod +x /usr/bin/xray
