@@ -1,0 +1,25 @@
+# Dockerfile for xray based alpine
+# Copyright (C) 2019 - 2021 Teddysun <i@teddysun.com>
+# Reference URL:
+# https://github.com/XTLS/Xray-core
+# https://github.com/v2fly/v2ray-core
+# https://github.com/Loyalsoldier/v2ray-rules-dat
+
+FROM alpine:latest
+LABEL maintainer="github/marchocode"
+
+WORKDIR /root
+COPY xray.sh /root/xray.sh
+COPY config.json /etc/xray/config.json
+RUN set -ex \
+	&& apk add --no-cache tzdata ca-certificates \
+	&& mkdir -p /var/log/xray /usr/share/xray \
+	&& chmod +x /root/xray.sh \
+	&& /root/xray.sh \
+	&& rm -fv /root/xray.sh \
+	&& wget -O /usr/share/xray/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat \
+	&& wget -O /usr/share/xray/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+
+VOLUME /etc/xray
+ENV TZ=Asia/Shanghai
+CMD [ "/usr/bin/xray", "-config", "/etc/xray/config.json" ]
