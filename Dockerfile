@@ -1,5 +1,3 @@
-# Dockerfile for xray based alpine
-# Copyright (C) 2019 - 2021 Teddysun <i@teddysun.com>
 # Reference URL:
 # https://github.com/XTLS/Xray-core
 # https://github.com/v2fly/v2ray-core
@@ -20,8 +18,8 @@ RUN set -ex \
 	&& chmod +x /root/xray.sh \
 	&& /root/xray.sh \
 	&& rm -fv /root/xray.sh \
-	&& wget -O /usr/share/xray/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat \
-	&& wget -O /usr/share/xray/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+	&& wget -Oq /usr/share/xray/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat \
+	&& wget -Oq /usr/share/xray/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 
 VOLUME /etc/xray
 ENV TZ=Asia/Shanghai
