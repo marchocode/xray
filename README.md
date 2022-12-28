@@ -22,3 +22,12 @@ wget https://github.com/XTLS/Xray-core/releases/download/v1.6.1/Xray-linux-64.zi
 Connecting to 127.0.0.1:10809... connected.
 Proxy request sent, awaiting response... 302 Found
 ```
+
+## 定时更新
+默认每天18点更新规则文件，如需修改更新时间
+
+新建一个文件，修改后挂载到容器内 `-v your_file_path:/var/spool/cron/crontabs/root`
+
+```text
+*       18      *       *       *       /etc/xray/update-rules-dat.sh
+```
