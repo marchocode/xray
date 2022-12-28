@@ -1,6 +1,9 @@
 # xray
 v2ray/xray docker 快速启动版 每天18点自动更新规则文件
 
+## 说明
+规则文件来源： https://github.com/Loyalsoldier/v2ray-rules-dat
+Docker 脚本修改来源：https://github.com/teddysun/across
 
 ## 如何使用
 构建或者复制你的json文件,保存到当前目录
@@ -19,4 +22,3 @@ wget https://github.com/XTLS/Xray-core/releases/download/v1.6.1/Xray-linux-64.zi
 Connecting to 127.0.0.1:10809... connected.
 Proxy request sent, awaiting response... 302 Found
 ```
-
