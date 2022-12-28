@@ -17,6 +17,8 @@ RUN set -ex \
 	&& apk add --no-cache tzdata ca-certificates \
 	&& mkdir -p /var/log/xray /usr/share/xray \
 	&& chmod +x /root/xray.sh \
+	&& chmod +x /root/start.sh \
+	&& chmod +x /etc/xray/update-rules-dat.sh \
 	&& /root/xray.sh \
 	&& rm -fv /root/xray.sh \
 	&& wget -qO /usr/share/xray/geosite.dat https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat \

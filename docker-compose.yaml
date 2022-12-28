@@ -1,0 +1,7 @@
+services:
+  xray:
+    image: marchocode/xray:latest
+    volumes:
+      - "./config.json:/etc/xray/config.json"
+    container_name: xray
+    network_mode: host
