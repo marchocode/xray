@@ -50,6 +50,6 @@ fi
 echo "Download binary file: ${XRAY_FILE} completed"
 
 echo "Setting Default Crond"
-echo "*       18      *       *       *       /etc/xray/update-rules-dat.sh" > /var/spool/cron/crontabs/root
+echo "0       18      *       *       *       /etc/xray/update-rules-dat.sh" > /var/spool/cron/crontabs/root
 
 chmod +x /usr/bin/xray
